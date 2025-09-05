@@ -23,9 +23,18 @@ Name, age, species, class, level, location, text feedback box
 
 ## Troubleshooting:
 
-Digimon > localhost8080:Digimon > Digimon
-Again with trying to define the style sheet, for some reason I had to copy and paste the code in as, no changes, and it decided it would work again. Have refreshed the colours several times to be sure it works.
-Vite decided it no longer wanted to be a thing on Friday after lunch, and had to reinstall.
+Had a few issues with general gremlins and some utterly unexplainable ones:
+- When testing pulling existing data, Supabase threw hours of headaches with internal server errors, password authentication issues (despite being reset), and spending too much time changing things around only to change the path from: /suffix to full path to /suffix, and it all finally worked again.
+
+- Similar when trying to define the style sheet, for some reason I had to copy and paste the code in as, no changes, and it decided it would work again. Have refreshed the colours several times to be sure it works.
+
+- Vite decided it no longer wanted to be a thing on Friday after lunch, and had to reinstall.
+
+- Supabase did not want to pull data after upgrading the table. Eventually resolved much later. 
+
+- It took me four attempts to work with Render before it finally behaved.
+
+- Supabase and Render are conspiring against me. 
 
 
 ## Resources:
@@ -43,5 +52,4 @@ Stackedit Markdown editor
 ### Extra resources:
 
 Date stamping via sequel
-
 https://www.influxdata.com/blog/sql-server-timestamps-introduction/
