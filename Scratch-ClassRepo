@@ -1,0 +1,153 @@
+-- -- BASIC SQL QUERIES
+
+-- -- create a table
+-- -- constraints: data type that we want to store in each column
+-- -- id column: represent each entry uniquely (PRIMARY KEY)
+-- CREATE TABLE staff (
+--   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+--   name TEXT,
+--   location VARCHAR(255),
+--   age INT,
+--   role VARCHAR(255)
+-- );
+
+-- -- add new data to the table
+-- INSERT INTO staff (name, location, age, role)
+-- VALUES ('Manny', 'Norwich', 50, 'instructor'),
+-- ('Tim', 'Norwich', 120, 'course director');
+
+-- -- select some data from my table
+-- -- when we select specific columns, we are not creating a new table. We are filtering the current table
+-- SELECT * FROM staff;
+
+-- SELECT name, location FROM staff;
+
+-- -- the keyword WHERE adds a condition to our SELECT
+-- SELECT * FROM staff WHERE name = 'Joe';
+
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+
+-- //SERVER QUERIES 
+
+-- //import express and cors
+-- import express from "express"; //ES6 syntax
+-- import cors from "cors";
+-- import { db } from "./dbConnection.js"; //import the pool
+
+-- //initialiase express
+-- const app = express();
+-- //use express and cors
+-- app.use(cors());
+-- app.use(express.json()); //use JSON to manipulate data
+
+-- //set up a port
+-- const PORT = 8080;
+-- app.listen(PORT, function () {
+--   console.info(` Server is running in port ${PORT}`);
+-- });
+
+-- //set up a root route
+-- //TODO: Read data in this route
+-- app.get("/", function (req, res) {
+--   res.json({ message: "Welcome to the server. GET comfy" });
+-- });
+
+-- //TODO: I want to READ all the data from the staff table
+-- // http://localhost:8080/staff --> endpoint, params
+-- app.get("/staff", async function (req, res) {
+--   //we need to query our database here
+--   const query = await db.query(`SELECT * FROM staff;`);
+--   console.log(query);
+--   //parse data into JSON and wrangle data
+--   res.json(query.rows);
+-- });
+
+-- //TODO: I want to READ all the names from the staff table
+
+-- app.get("/staff-names", async function (req, res) {
+--   const query = await db.query(`SELECT name FROM staff;`);
+--   res.json(query.rows);
+-- });
+
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+-- USER INPUT POST ROUTES
+-- <!DOCTYPE html>
+-- <html lang="en">
+--   <head>
+--     <meta charset="UTF-8" />
+--     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+--     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+--     <link rel="stylesheet" href="./src/style.css" />
+--     <script type="module" src="./src/app.js" defer></script>
+--     <title>Staff App</title>
+--   </head>
+--   <body>
+--     <h1>Staff App</h1>
+--     <!-- in here, we need to add some inputs that resemble the table columns -->
+--     <!-- be consistent between the data you collect in the client, the data you process in the server, and the data you sotre in the database -->
+--     <form id="staff-form">
+--       <!-- validate the data type of your inputs to match the columns in the database -->
+--       <!-- name your inputs with the same value as the name of your columns in the database table -->
+--       <label for="name">Staff name: </label>
+--       <input type="text" name="name" required />
+--       <label for="location">Location: </label>
+--       <input type="text" name="location" required />
+--       <label for="age">Staff age: </label>
+--       <input type="number" name="age" required min="16" max="75" />
+--       <label for="role">Staff role: </label>
+--       <input type="text" name="role" required />
+--       <button type="submit">Submit new data</button>
+--     </form>
+--   </body>
+-- </html>
+
+-- //imports
+-- import express from "express";
+-- import cors from "cors";
+-- import { db } from "./dbConnection.js";
+
+-- //start express
+-- const app = express();
+
+-- //config express with JSON and cors
+-- app.use(express.json());
+-- app.use(cors());
+
+-- //set up a port
+-- const PORT = 8080;
+-- app.listen(PORT, () => console.log(`Server is running in port ${PORT}`));
+
+-- //set up a root route
+-- //TODO: READ (GET) a welcome message in the root route
+-- app.get("/", (_, res) => {
+--   res.json({ message: "Welcome to the server. GET comfy!" });
+-- });
+
+-- //=============================================================
+-- //TODO: READ all staff data in the database with name "Manny"
+-- app.get("/staff-manny", async (_, res) => {
+--   //query the database
+--   const query = await db.query(
+--     `SELECT name, location, age, role FROM staff WHERE name = $1`,
+--     [
+--       //do not add values directly here, this is for demo purposes
+--       "Manny",
+--     ]
+--   );
+--   res.json(query.rows);
+-- });
+
+-- //TODO: CREATE (POST) new data in the database
+-- app.post("/add-staff", (req, res) => {
+--   //an element to store the data coming from the client
+--   const newStaff = req.body.formValues;
+--   //database query
+--   //in our SQL queries, we can have a placeholder (parameter) that we will replace with the actual values when the client sends them
+--   const query = db.query(
+--     `INSERT INTO staff (name, location, age, role) VALUES ($1, $2, $3, $4)`,
+--     [newStaff.name, newStaff.location, newStaff.age, newStaff.role]
+--   );
+--   res.json("Data sent", query);
+-- });
