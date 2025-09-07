@@ -1,7 +1,7 @@
 //TODO: Collect user's data from the form and send it to the server
 
 //select the form from the DOM
-const rateMyAdventurer = document.getElementById("RMA-form");
+const rateMyAdventurer = document.getElementById("rma-form");
 
 //add a submit event to the form
 rateMyAdventurer.addEventListener("submit", handleSubmit);
@@ -21,7 +21,7 @@ function handleSubmit(event) {
   //- we have a POST route called add-staff in the server, ready to receive our formValues
   //- connect client with specific server route --> fetch
   //- add the formValues to the fetch request --> body
-  fetch("https://assignment4-wqkw.onrender.com/khasrae", {
+  fetch("https://assignment4-wqkw.onrender.com/rateMyAdventurer", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

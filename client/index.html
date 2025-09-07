@@ -12,37 +12,38 @@
     <div id="app"></div>
 <!-- //============================================ -->
 
-
+<!-- Title - on full app implement nav menu to go to other party members and implement LFG/LFS facility. Possible future project idea to flesh out -->
 <div class="container">
   <div class="header">
     <h1>Rate thine Adventurer</h1>
+    <h2>KHASRAE SELENI</h2>
   </div>
-
-  <!-- //Khasrae's rating form -->
-  <div class="RMA-submission-form-area">
-     <h2>RATE KHASRAE SELENI</h2>
-    <form id="RMA-form">
-      <label for="adventurerName">Name:</label>
-      <input type="text" name="adventurerName"/>
-
-      <label for="adventurerSpecies">Species:</label>
-      <input type="text" name="adventurerSpecies"/>
-
-       <label for="adventurerClass">Class:</label>
-       <input type="text" name="adventurerClass"/>
-
-       <label for="reviewForm">Review:</label>
-       <input type="text" name="reviewForm"/>
-
-<!-- //FORM submit -->
-  <button type="submit">Send</button>
-</form></div>
-
-  <div class="mid-page-buffer">
+  
+  <div class="rma-submission-form-area">
+    <div class="rma-image-form-grid">
+      <div class="rma-form-segment">
+        <form id="rma-form">
+          <label for="adventurerName">Name:</label>
+          <input type="text" name="adventurerName"/>
+          <label for="adventurerSpecies">Species:</label>
+          <input type="text" name="adventurerSpecies"/>
+          <label for="adventurerClass">Class:</label>
+          <input type="text" name="adventurerClass"/>
+          <label for="reviewForm">Review:</label>
+          <input type="text" name="reviewForm"/>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <div class="rma-image-segment">
+        <img src="assets/Khasrae-poster.jpg" alt="Poster of Khasrae Seleni" width="400" height="auto">
+      </div>
+    </div>
+  </div> <div class="mid-page-buffer">
+    <h3>Reviews for Khasrae Seleni</h3>
   </div>
 
   <div class="returned-submission-forms">
-  </div>
+    </div>
 
   <div class="footer">
   </div>
@@ -52,6 +53,14 @@
   
   <div class="right-buffer">
   </div>
+</div>
+   
+
+    <!-- Loop to fetch and create each review -->
+
+    <!-- Review contents -->
+
+    <!-- Append review -->
 
 </div>
 

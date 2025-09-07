@@ -1,8 +1,9 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 
-body {
-  background-color: greenyellow;
+* {
+  box-sizing: border-box;
 }
+
 h1 {
   font-size: 2rem;
   font-weight: bold;
@@ -12,16 +13,9 @@ h2 {
   font-weight:bold;
 }
 
-body {
-
-}
-
-
-
-
 .container {  display: grid;
   grid-template-columns: 0.3fr 1fr 1fr 1fr 0.3fr;
-  grid-template-rows: 0.3fr 1.3fr 0.3fr 2.1fr 0.3fr;
+  grid-template-rows: 0.2fr 1.3fr 0.3fr 2.1fr 0.2fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -32,16 +26,122 @@ body {
     "footer footer footer footer footer";
 }
 
-.header { grid-area: header; }
+body {
+  background: #2e2100;
+  background: linear-gradient(180deg,rgba(46, 33, 0, 1) 0%, rgba(105, 75, 15, 1) 7%, rgba(84, 55, 1, 1) 12%, rgba(92, 56, 3, 1) 20%, rgba(143, 88, 0, 1) 25%, rgba(128, 81, 11, 1) 33%, rgba(199, 116, 0, 1) 39%, rgba(161, 110, 0, 1) 50%, rgba(184, 133, 31, 1) 56%, rgba(184, 143, 62, 1) 61%, rgba(120, 80, 7, 1) 69%, rgba(135, 104, 41, 1) 79%, rgba(107, 80, 29, 1) 88%, rgba(84, 57, 2, 1) 100%);;
+}
 
-.submission-form-area { grid-area: submission-form-area; }
+#rma-form {
+  display: flex;
+  flex-direction: column;
+}
 
-.mid-page-buffer { grid-area: mid-page-buffer; }
+      #rma-form input, #rma-form button {
+            width: 100%; 
+            padding: 8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
 
-.returned-submission-forms { grid-area: returned-submission-forms; }
+.rma-submission-form-area {
+   grid-area: submission-form-area;
+            background: #FFF0D1;
+            background: linear-gradient(90deg, rgba(255, 240, 209, 1) 0%, rgba(250, 247, 247, 1) 50%, rgba(255, 240, 209, 1) 100%);
+            text-align: center;
+            border: whitesmoke;
+            border-style: outset;
+            border-radius: 10px;
+            margin: 20px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+}
 
-.footer { grid-area: footer; }
+
+.rma-image-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  align-items: stretch;
+    gap: 20px;
+}
+
+.rma-image-segment {
+     padding: 20px;
+            background-color: #fcf6e8;
+            border-radius: 10px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+
+    .rma-image-segment img {
+            max-width: 40%;
+            height: auto;
+            border-radius: 10px;
+            align-self: center;
+        }
+
+.rma-form-segment {
+            padding: 20px;
+            background-color: #fcf6e8;
+            border-radius: 8px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+.header { 
+  grid-area: header; 
+  background: #FFF0D1;
+  background: linear-gradient(90deg, rgba(255, 240, 209, 1) 0%, rgba(250, 247, 247, 1) 50%, rgba(255, 240, 209, 1) 100%);
+  text-align: center;
+  border: whitesmoke;
+  border-style: outset;
+  border-radius: 10px;
+  align-content: center;
+;}
+
+.mid-page-buffer { 
+  grid-area: mid-page-buffer;
+  background: #FFF0D1;
+  background: linear-gradient(90deg, rgba(255, 240, 209, 1) 0%, rgba(250, 247, 247, 1) 50%, rgba(255, 240, 209, 1) 100%);
+  text-align: center;
+  border: whitesmoke;
+  border-style: outset;
+  border-radius: 10px;
+  margin-bottom: 20px; 
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.returned-submission-forms { grid-area: returned-submission-forms; 
+  grid-area: returned-submission-forms;
+  background: #FFF0D1;
+  background: linear-gradient(90deg, rgba(255, 240, 209, 1) 0%, rgba(250, 247, 247, 1) 50%, rgba(255, 240, 209, 1) 100%);
+  text-align: center;
+  border: whitesmoke;
+  border-style: outset;
+  border-radius: 10px;
+  margin-bottom: 20px; 
+}
 
 .left-buffer { grid-area: left-buffer; }
 
 .right-buffer { grid-area: right-buffer; }
+
+.footer { grid-area: footer; 
+  background: #FFF0D1;
+  background: linear-gradient(90deg, rgba(255, 240, 209, 1) 0%, rgba(250, 247, 247, 1) 50%, rgba(255, 240, 209, 1) 100%);
+  text-align: center;
+  border: whitesmoke;
+  border-style: outset;
+  border-radius: 10px;
+  align-content: center;
+}
+
+  @media (max-width: 768px) {
+            .rma-image-form-grid {
+                grid-template-columns: 1fr; 
+            }}
