@@ -10,41 +10,51 @@
   </head>
   <body>
     <div id="app"></div>
+<!-- //============================================ -->
+
 
 <div class="container">
   <div class="header">
     <h1>Rate thine Adventurer</h1>
   </div>
 
-  <div class="submission-form-area">
-     <h2>RATE MY ADVENTURER</h2>
-    <form id="messageForm">
-  <input type="text" name="message" id="messageInput" />
- 
+  <!-- //Khasrae's rating form -->
+  <div class="RMA-submission-form-area">
+     <h2>RATE KHASRAE SELENI</h2>
+    <form id="RMA-form">
+      <label for="adventurerName">Name:</label>
+      <input type="text" name="adventurerName"/>
+
+      <label for="adventurerSpecies">Species:</label>
+      <input type="text" name="adventurerSpecies"/>
+
+       <label for="adventurerClass">Class:</label>
+       <input type="text" name="adventurerClass"/>
+
+       <label for="reviewForm">Review:</label>
+       <input type="text" name="reviewForm"/>
+
+<!-- //FORM submit -->
   <button type="submit">Send</button>
 </form></div>
 
   <div class="mid-page-buffer">
-
   </div>
 
   <div class="returned-submission-forms">
-
   </div>
 
   <div class="footer">
-
   </div>
 
   <div class="left-buffer">
-
   </div>
   
   <div class="right-buffer">
-
   </div>
+
 </div>
 
-    <script type="module" src="/src/main.js"></script>
+ 
   </body>
 </html>
